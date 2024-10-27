@@ -1,0 +1,779 @@
+$lightGreen: #b9e7e7;
+
+h1,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: $lightGreen;
+
+    h1 {
+        font-size: 20px;
+        color: teal;
+        margin-bottom: 20px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        background-color: white;
+        width: 200px;
+        gap: 20px;
+
+        input {
+            padding: 10px;
+            border: none;
+            border-bottom: 1px solid gray;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            background-color: teal;
+            cursor: pointer;
+            color: white;
+        }
+
+        p {
+            font-size: 12px;
+            color: red;
+            text-align: center;
+            margin: 0;
+        }
+
+        span {
+            font-size: 12px;
+            text-align: center;
+        }
+    }
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+
+    .container {
+        width: 70vw;
+
+        .navbar {
+            .container {
+                padding: 10px 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+
+                .logo {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
+                    position: relative;
+
+                    .img-before {
+                        height: 110px;
+                        width: 110px;
+                        background-color: $lightGreen;
+                        border-radius: 50%;
+                        position: absolute;
+                    }
+
+                    img {
+                        width: 200px;
+                        position: relative;
+                    }
+                }
+
+                .links {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+
+                    h6 {
+                        font-size: 16px;
+                        font-weight: 300;
+                        margin: 0;
+                        transition: color 0.3s ease;
+                    }
+
+                    .link {
+                        position: relative;
+                        cursor: pointer;
+                        text-decoration: none;
+                        color: black;
+                        padding: 5px 0;
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            left: 50%;
+                            bottom: -5px;
+                            width: 0;
+                            height: 2px;
+                            background-color: teal;
+                            transition: width 0.3s ease, left 0.3s ease;
+                        }
+
+                        &:hover {
+                            color: teal;
+                            transform: translateY(-2px);
+
+                            &::after {
+                                width: 100%;
+                                left: 0;
+                            }
+                        }
+                    }
+
+                    .write {
+                        background-color: $lightGreen;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: 300;
+                        border: 1px solid white;
+                        text-decoration: none;
+
+                        &:hover {
+                            color: teal;
+                            background-color: white;
+                            border: 1px solid teal;
+                        }
+                    }
+                }
+            }
+
+            @media only screen and (max-width: 768px) {
+                .container {
+                    flex-direction: column;
+                    align-items: center;
+
+                    .links {
+                        width: 100%;
+                        flex-wrap: wrap;
+                        flex-direction: row;
+                        gap: 10px;
+                        padding: 10px 0;
+                        justify-content: center;
+
+                        .link {
+                            width: fit-content;
+                        }
+
+                        .write {
+                            width: fit-content;
+                            justify-content: center;
+                        }
+                    }
+                }
+            }
+
+            @media only screen and (max-width: 480px) {
+                .container {
+                    .logo {
+                        img {
+                            width: 150px;
+                        }
+                    }
+
+                    .links {
+                        h6 {
+                            font-size: 14px;
+                        }
+
+                        .write {
+                            height: 40px;
+                            width: 40px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer {
+            margin-top: 100px;
+            padding: 20px;
+            background-color: $lightGreen;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 20px;
+            color: teal;
+            font-weight: bold;
+
+            p {
+                font-size: 12px;
+                font-weight: 100;
+                color: #555;
+            }
+        }
+
+        .home {
+            .posts {
+                display: flex;
+                flex-direction: column;
+                gap: 150px;
+
+                .post {
+                    display: flex;
+                    gap: 100px;
+
+                    &:nth-child(2n + 1) {
+                        flex-direction: row-reverse;
+                    }
+
+                    .img {
+                        flex: 2;
+                        position: relative;
+
+                        &::after {
+                            content: "";
+                            width: 100%;
+                            height: 100%;
+                            background-color: $lightGreen;
+                            position: absolute;
+                            top: 20px;
+                            left: -20px;
+                            z-index: -1;
+                        }
+
+                        img {
+                            width: 100%;
+                            height: 400px;
+                            object-fit: cover;
+                            transition: transform 0.3s ease, box-shadow 0.3s ease;
+                            cursor: pointer;
+                        }
+
+                        &:hover img {
+                            transform: scale(1.05);
+                            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+                        }
+                    }
+
+                    .content {
+                        flex: 3;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+
+                        h1 {
+                            font-size: 48px;
+                            margin: 0;
+                            animation: bounce 2s infinite;
+                        }
+
+                        p {
+                            font-size: 18px;
+                            margin: 0;
+                        }
+
+                        button {
+                            width: max-content;
+                            padding: 10px 20px;
+                            border: none;
+                            cursor: pointer;
+                            background-color: white;
+                            border: 1px solid teal;
+                            color: teal;
+                            position: relative;
+                            overflow: hidden;
+
+                            &:hover {
+                                border: 1px solid white;
+                                background-color: $lightGreen;
+                                color: black;
+                                animation: pulse 0.6s;
+                            }
+
+                            &:before {
+                                content: "";
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                width: 300%;
+                                height: 300%;
+                                background: rgba(255, 255, 255, 0.4);
+                                border-radius: 50%;
+                                transform: translate(-50%, -50%) scale(0);
+                                transition: transform 0.6s ease;
+                                z-index: 0;
+                            }
+
+                            &:hover:before {
+                                transform: translate(-50%, -50%) scale(1);
+                            }
+
+                            span {
+                                position: relative;
+                                z-index: 1;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            @media only screen and (max-width: 768px) {
+                .posts {
+                    gap: 100px;
+
+                    .post {
+                        display: flex;
+                        text-align: center;
+                        flex-direction: column;
+                        gap: 20px;
+
+                        justify-content: center;
+
+                        justify-content: center;
+
+                        &:nth-child(2n + 1) {
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+
+
+                        .img {
+
+
+                            margin-bottom: 20px;
+                            width: 100%;
+                            height: 60%;
+
+                            img {
+                                height: 40%;
+
+                            }
+
+                        }
+
+                        .content {
+                            h1 {
+                                font-size: 2rem;
+                                margin: 5px;
+                            }
+
+                            p {
+                                font-size: 1rem;
+                                margin: 5px;
+                            }
+
+                            button {
+                                padding: 8px 16px;
+                                margin: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @media only screen and (max-width: 480px) {
+                .posts {
+                    gap: 50px;
+
+                    .post {
+                        .img {
+
+                            img {
+                                height: 200px;
+                            }
+                        }
+
+                        .content {
+                            h1 {
+                                font-size: 1rem;
+                            }
+
+                            p {
+                                font-size: 0.7rem;
+                            }
+
+                            button {
+                                padding: 6px 12px;
+                                font-size: 0.7rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
+            .loading {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 500px;
+                color: #555;
+
+                img {
+                    width: 150px;
+                }
+
+                h1 {
+                    animation: blink 2s infinite;
+                }
+
+                @keyframes blink {
+                    0% {
+                        opacity: 1;
+                    }
+
+                    50% {
+                        opacity: 0;
+                    }
+
+                    100% {
+                        opacity: 1;
+                    }
+                }
+            }
+
+
+            @keyframes bounce {
+
+                0%,
+                20%,
+                50%,
+                80%,
+                100% {
+                    transform: translateY(0);
+                }
+
+                40% {
+                    transform: translateY(-10px);
+                }
+
+                60% {
+                    transform: translateY(-5px);
+                }
+            }
+
+
+            @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                }
+
+                50% {
+                    transform: scale(1.05);
+                }
+
+                100% {
+                    transform: scale(1);
+                }
+            }
+        }
+
+        .single {
+            display: flex;
+            gap: 50px;
+            margin-top: 20px;
+
+            .content {
+                flex: 5;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+
+                img {
+                    width: 100%;
+                    height: 300px;
+                    object-fit: cover;
+                }
+
+                .user {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 14px;
+
+                    img {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
+                    p {
+                        margin: 0px;
+                    }
+
+                    span {
+                        font-weight: bold;
+                    }
+                }
+
+                .edit {
+                    display: flex;
+                    gap: 5px;
+
+                    img {
+                        width: 20px;
+                        height: 20px;
+                        cursor: pointer;
+                    }
+                }
+
+                h1 {
+                    font-size: 42px;
+                    color: #333;
+                }
+
+                p {
+                    text-align: justify;
+                    line-height: 30px;
+                }
+            }
+
+            .menu {
+                flex: 2;
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                height: 1000px;
+                overflow: scroll;
+
+                h1 {
+                    font-size: 20px;
+                    color: #555;
+                }
+
+                .post {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    img {
+                        width: 100%;
+                        height: 200px;
+                        object-fit: cover;
+                    }
+
+                    h2 {
+                        color: #555;
+                    }
+
+                    button {
+                        width: max-content;
+                        padding: 7.5px 15px;
+                        border: none;
+                        cursor: pointer;
+                        background-color: white;
+                        border: 1px solid teal;
+                        color: teal;
+
+                        &:hover {
+                            border: 1px solid white;
+                            background-color: $lightGreen;
+                            color: black;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Write
+
+        .add {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+
+            .content {
+                flex: 5;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            input {
+                padding: 10px;
+                border: 1px solid lightgray;
+            }
+
+            .editorContainer {
+                height: 300px;
+                overflow: scroll;
+                border: 1px solid lightgray;
+            }
+
+            .editor {
+                height: 100%;
+                border: none;
+            }
+
+            .menu {
+                flex: 2;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .item {
+                    border: 1px solid lightgray;
+                    padding: 10px;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    font-size: 12px;
+                    color: #555;
+
+                    h1 {
+                        font-size: 20px;
+                    }
+
+                    label {
+                        text-decoration: underline;
+                    }
+
+                    .file {
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+
+                    .buttons {
+                        display: flex;
+                        justify-content: space-between;
+
+                        :first-child {
+                            cursor: pointer;
+                            color: teal;
+                            background-color: white;
+                            border: 1px solid teal;
+                            padding: 3px 5px;
+                        }
+
+                        :last-child {
+                            cursor: pointer;
+                            color: white;
+                            background-color: teal;
+                            border: 1px solid teal;
+                            padding: 3px 5px;
+                        }
+                    }
+
+                    .cat {
+                        display: flex;
+                        align-items: center;
+                        gap: 2px;
+                        color: teal;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .app {
+        .container {
+            width: 90vw;
+        }
+
+        .navbar {
+            .container {
+                padding: 5px 0;
+            }
+
+            .links {
+                gap: 10px;
+            }
+
+            .link {
+                font-size: 14px;
+            }
+        }
+
+        .single {
+            flex-direction: column;
+
+            .content {
+                flex: 1;
+            }
+
+            .menu {
+                display: none;
+            }
+        }
+
+        .add {
+            flex-direction: column;
+
+            .content {
+                flex: 1;
+            }
+
+            .menu {
+                display: none;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+
+
+        .app {
+            .container {
+                width: 95vw;
+            }
+
+            .navbar {
+                .container {
+                    padding: 3px 0;
+                }
+
+                .links {
+                    gap: 5px;
+                }
+
+                .link {
+                    font-size: 12px;
+                }
+            }
+
+            .single {
+                .content {
+                    h1 {
+                        font-size: 30px;
+                    }
+
+                    p {
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            .add {
+                .content {
+                    h1 {
+                        font-size: 30px;
+                    }
+
+                    p {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
